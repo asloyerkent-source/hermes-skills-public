@@ -62,6 +62,30 @@ git clone https://github.com/asloyerkent-source/hermes-skills-public.git
 cp -r hermes-skills-public/flows/decision-loop ~/.hermes/skills/flows/
 ```
 
+### 技能怎么被触发
+
+技能按内容里的**搜索词**自动匹配，不用手动调用。你说的话命中搜索词，对应技能就生效：
+
+| 你说 | 触发技能 | 效果 |
+|------|----------|------|
+| "帮我选型/对比竞品" | `competitive-product-analysis` | 竞品拆解 + 模式提取 |
+| "这个 bug 定位一下" | `systematic-debugging` | 根因定位，不修症状 |
+| "这个文件能删吗" | `safe-file-organization` | rm 改 trash，防误删 |
+| "帮我整理 vault / 定个计划" | `decision-loop` | 九步循环：查证→派活→验收 |
+
+### 一个完整例子
+
+> 用户："帮我整理一下 vault"
+>
+> → 触发 `decision-loop` → 按九步走：查真相源 → 出任务书 → 派活执行 → 验收对账
+> → 整理过程触发 `safe-file-organization`：所有删除先进 trash，md5 对账后才真删
+
+### 贡献
+
+用得好、不好都欢迎提 issue —— 尤其是有技能没覆盖到的场景：
+
+https://github.com/asloyerkent-source/hermes-skills-public/issues
+
 ## 许可证
 
 MIT

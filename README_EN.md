@@ -78,6 +78,30 @@ git clone https://github.com/asloyerkent-source/hermes-skills-public.git
 cp -r hermes-skills-public/flows/decision-loop ~/.hermes/skills/flows/
 ```
 
+### How Skills Get Triggered
+
+Skills auto-match on **search keywords** inside their content — no manual invocation needed. When your request hits a skill's keywords, that skill activates:
+
+| You say | Triggers | What it does |
+|---------|----------|--------------|
+| "help me pick / compare competitors" | `competitive-product-analysis` | competitor teardown + pattern extraction |
+| "track down this bug" | `systematic-debugging` | root-cause, not symptom |
+| "can I delete this file?" | `safe-file-organization` | rm → trash, prevents accidental loss |
+| "organize my vault / make a plan" | `decision-loop` | nine-step loop: verify → delegate → validate |
+
+### A Complete Example
+
+> User: "help me organize my vault"
+>
+> → triggers `decision-loop` → runs the nine steps: check sources → write the task brief → delegate → validate
+> → during cleanup triggers `safe-file-organization`: every delete goes to trash first, real delete only after md5 reconciliation
+
+### Contributing
+
+Issues welcome — whether a skill helped or fell short, and especially scenarios no skill covers:
+
+https://github.com/asloyerkent-source/hermes-skills-public/issues
+
 ## License
 
 MIT
